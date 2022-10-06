@@ -1,24 +1,15 @@
+import { useEffect, useState } from "react"
 import { useParams } from "react-router-dom"
-import {useEffect, useState} from "react"
-import ItemList from '../components/ItemList';
+import ItemDetail from "./ItemDetail";
 
-
-const ItemListContainer = ({ greeting }) => {
+const ItemDetailContainer = () => {
     const { id } = useParams();
-    const [productos, setProductos] = useState([]);
-    
-    useEffect(() => {
-        //if (id !== undefined)
-        //{
-            if (id !== undefined)
-                console.log(`Estoy en la categoria ${id}`);
-            else
-                console.log(`Estoy en el HOME`);
+    const [producto, setProducto] = useState({});
 
-            //return () =>{
-            //    console.log(`Vengo de la anterior categoria ${id}`);
-            //}
-            // ACA SIMULO EL LLAMADO PARA CARGAR TODOS LOS PRODUCTOS DE LA CATEGORIA CORRESPONDIENTE
+    useEffect(() => {
+            console.log(`Mostrando Item ${id}`);
+
+            // ACA SIMULO EL LLAMADO PARA CARGAR EL ITEM CORRESPONDIENTE
             
             const task = new Promise((resolve, reject) => {
                 setTimeout(()=>{
@@ -42,46 +33,31 @@ const ItemListContainer = ({ greeting }) => {
                         {id:17, category:'cartelesled', title:"Cartel LED flor 1 rosa", description: "Cartel led flor 1 rosa mediana, se adaptan a cualquier estilo y otorgan un brillo delicado a tu espacio. Podés colocarlas en una mesa, escritorio o pared.", price:3039.00, pictureUrl:"https://cinderelladecoracion.com/wp-content/uploads/2020/04/Cartel-led-flor-1-rosa-mediana.jpg" }
                       ];
                     // simulo obtener solo los productos de cierta categoria
-                    if (id !== undefined)
-                        resolve(mockItems.filter(item => item.category === id)
-                                         .map((item) => ({ id: item.id, title: item.title, description: item.description, price: item.price, pictureUrl: item.pictureUrl })));
-                    else
-                        resolve(mockItems.map((item) => ({ id: item.id, title: item.title, description: item.description, price: item.price, pictureUrl: item.pictureUrl })));
+                    resolve(mockItems.filter(item => item.id == id)
+                                     .map((item) => ({ id: item.id, title: item.title, description: item.description, price: item.price, pictureUrl: item.pictureUrl })));
                 }, 2000);
             })
-            
+           
             task.then((result)=>{
-                console.log("Productos", result);
-                setProductos(result);
+                console.log("Item", result);
+                if (result.length > 0)
+                    setProducto(result[0]);
             }).catch((err)=>{
                 console.log(err);
             }).finally(()=>{});
-        /*}
-        else
-        {// acá lo dejo vacío para NO mostrar productos (acá debería mostrar el HOME)
-            setProductos([]);
-        }*/
+
     }, [id]);
 
     return(
         <>
             <div className="App">
-                <header className="App-header">
-                    <h3>
-                        {greeting}
-                    </h3>
-                </header>
-                <section className="App-body">
-                    <ItemList products={productos} />
+                <section className="App-detail">
+                    <ItemDetail item={producto} />
                 </section>
-                    {/*(id === undefined) ? 
-                        <p>
-                            {greeting}
-                        </p>
-                    : <ItemList products={productos} /> */}
             </div>
+            
         </>
     )
 }
 
-export default ItemListContainer
+export default ItemDetailContainer
