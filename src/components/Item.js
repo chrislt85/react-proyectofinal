@@ -4,7 +4,7 @@ import {Link/*NavLink*/} from "react-router-dom"
 const Item = ({item}) => {
     return(
         <>
-            <Card style={{ width: '18rem' }}>
+            <Card style={{ width: '18rem', color: 'black' }}>
                 {/*<Card.Header>Featured</Card.Header>*/}
                 <Card.Img variant="top" src={item.pictureUrl} />
                 <Card.Body>
