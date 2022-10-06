@@ -1,5 +1,5 @@
 import { useParams } from "react-router-dom"
-import {useEffect, useState} from "react"
+import { useEffect, useState } from "react"
 import ItemList from '../components/ItemList';
 
 
@@ -8,8 +8,6 @@ const ItemListContainer = ({ greeting }) => {
     const [productos, setProductos] = useState([]);
     
     useEffect(() => {
-        //if (id !== undefined)
-        //{
             if (id !== undefined)
                 console.log(`Estoy en la categoria ${id}`);
             else
@@ -18,8 +16,8 @@ const ItemListContainer = ({ greeting }) => {
             //return () =>{
             //    console.log(`Vengo de la anterior categoria ${id}`);
             //}
-            // ACA SIMULO EL LLAMADO PARA CARGAR TODOS LOS PRODUCTOS DE LA CATEGORIA CORRESPONDIENTE
-            
+
+            // ACA SIMULO EL LLAMADO PARA CARGAR TODOS LOS PRODUCTOS DE LA CATEGORIA CORRESPONDIENTE (todos si estoy en el HOME)
             const task = new Promise((resolve, reject) => {
                 setTimeout(()=>{
                     const mockItems = [
@@ -56,11 +54,6 @@ const ItemListContainer = ({ greeting }) => {
             }).catch((err)=>{
                 console.log(err);
             }).finally(()=>{});
-        /*}
-        else
-        {// acá lo dejo vacío para NO mostrar productos (acá debería mostrar el HOME)
-            setProductos([]);
-        }*/
     }, [id]);
 
     return(
@@ -74,11 +67,6 @@ const ItemListContainer = ({ greeting }) => {
                 <section className="App-body">
                     <ItemList products={productos} />
                 </section>
-                    {/*(id === undefined) ? 
-                        <p>
-                            {greeting}
-                        </p>
-                    : <ItemList products={productos} /> */}
             </div>
         </>
     )

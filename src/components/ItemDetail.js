@@ -1,9 +1,7 @@
-import { Container, Row, Col } from "react-bootstrap"
 import '../styles/Item.css';
+import { Container, Row, Col } from "react-bootstrap"
 
 const ItemDetail = ({item}) => {
-
-
     return (
         <Container>
             <Row>

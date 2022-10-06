@@ -10,7 +10,6 @@ const ItemDetailContainer = () => {
             console.log(`Mostrando Item ${id}`);
 
             // ACA SIMULO EL LLAMADO PARA CARGAR EL ITEM CORRESPONDIENTE
-            
             const task = new Promise((resolve, reject) => {
                 setTimeout(()=>{
                     const mockItems = [
@@ -32,7 +31,7 @@ const ItemDetailContainer = () => {
                         {id:16, category:'cartelesled', title:"Cartel LED cactus oxido", description: "Cartel led cactus oxido mediano. se adaptan a cualquier estilo y otorgan un brillo delicado a tu espacio. Podés colocarlos en una mesa, escritorio o pared. Requiere 2 pilas AAA (incluidas).", price:3709.00, pictureUrl:"https://cinderelladecoracion.com/wp-content/uploads/2020/04/Cartel-led-cactus-oxido-mediano-1.jpg" },
                         {id:17, category:'cartelesled', title:"Cartel LED flor 1 rosa", description: "Cartel led flor 1 rosa mediana, se adaptan a cualquier estilo y otorgan un brillo delicado a tu espacio. Podés colocarlas en una mesa, escritorio o pared.", price:3039.00, pictureUrl:"https://cinderelladecoracion.com/wp-content/uploads/2020/04/Cartel-led-flor-1-rosa-mediana.jpg" }
                       ];
-                    // simulo obtener solo los productos de cierta categoria
+                    // simulo obtener solo el producto buscado
                     resolve(mockItems.filter(item => item.id == id)
                                      .map((item) => ({ id: item.id, title: item.title, description: item.description, price: item.price, pictureUrl: item.pictureUrl })));
                 }, 2000);
@@ -55,7 +54,6 @@ const ItemDetailContainer = () => {
                     <ItemDetail item={producto} />
                 </section>
             </div>
-            
         </>
     )
 }

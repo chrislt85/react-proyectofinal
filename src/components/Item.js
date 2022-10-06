@@ -1,5 +1,5 @@
-import { Card, Button/*, Container, Row, Col*/} from "react-bootstrap"
-import {Link/*NavLink*/} from "react-router-dom"
+import { Card, Button } from "react-bootstrap"
+import { Link } from "react-router-dom"
 
 const Item = ({item}) => {
     return(
@@ -13,16 +13,9 @@ const Item = ({item}) => {
                     <Link to={`/items/${item.id}`}>
                         <Button variant="primary">Ver detalle</Button>
                     </Link>
-                    {/*<NavLink className="nav-link" to={`/category/1`}>Lámparas</NavLink>*/}
                 </Card.Body>
-                        {/*<Card.Footer className="text-muted">Sin stock disponible</Card.Footer>*/}
-            </Card>  
-            {/*<p>
-                {item.id} - {item.title} (${item.price}) - {item.description}
-            </p>
-    <img src={item.pictureUrl} key={item.id} alt={item.title}></img>*/}
-            
-            
+                {/*<Card.Footer className="text-muted">Sin stock disponible</Card.Footer>*/}
+            </Card>
         </>
     )
 }
