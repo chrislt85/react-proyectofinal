@@ -1,15 +1,35 @@
-.itemImage{
-    max-width:25rem;
-    border: solid 1px white;
+.itemCard{
+    width: 18rem;
+    color: black;
+    margin-bottom: 1rem !important;
+    height:30rem;
 }
 
-.App-detail {
-    background-color: #282c34;
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    font-size: calc(10px + 2vmin);
-    color: white;
-  }
+.itemCard:hover{
+    box-shadow: 5px 5px 5px rgb(211, 211, 211);
+    border-color: rgb(114, 114, 114)
+}
+
+.itemImageContainer{
+    border-bottom: 1px solid rgba(0,0,0,.125);
+}
+
+.itemImage {
+    /*padding:5px;*/
+    width: 100%;
+    /*height: 20vw;*/
+    height: 19rem;
+    object-fit: cover;
+}
+
+.itemCard .itemText{
+    font-size: 14px;
+}
+
+.itemCard .itemPrice{
+    /*border-top: 1px solid rgba(0,0,0,.125);
+    padding-top:2px;*/
+    /*font-family: Proxima Nova,-apple-system,Helvetica Neue,Helvetica,Roboto,Arial,sans-serif;*/
+    font-size: 24px;
+    font-weight: normal;
+}

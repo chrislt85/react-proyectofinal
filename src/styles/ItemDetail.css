@@ -1,0 +1,19 @@
+.itemImage{
+    /*max-width:25rem;*/
+    /*width:100%;*/
+    /*min-height: 90vh;*/
+    border: solid 1px lightgray;
+}
+
+.App-detail {
+    /*background-color: #282c34;*/
+    background-color: white;
+    min-height: 100vh;
+    padding-top:70px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-size: calc(10px + 2vmin);
+    /*color: white;*/
+}

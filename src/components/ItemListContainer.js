@@ -60,9 +60,9 @@ const ItemListContainer = ({ greeting }) => {
         <>
             <div className="App">
                 <header className="App-header">
-                    <h3>
+                    <h5>
                         {greeting}
-                    </h3>
+                    </h5>
                 </header>
                 <section className="App-body">
                     <ItemList products={productos} />

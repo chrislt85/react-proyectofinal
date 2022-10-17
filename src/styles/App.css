@@ -3,19 +3,21 @@
 }
 
 .App-header {
-  background-color: #282c34;
+  /*background-color: #282c34;*/
+  background-color: white;
   /*min-height: 100vh;*/
-  padding-top:60px;
+  padding-top:70px;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   font-size: calc(10px + 2vmin);
-  color: white;
+  /*color: white;*/
 }
 
 .App-body {
-  background-color: #282c34;
+  /*background-color: #282c34;*/
+  background-color: white;
   /*min-height: 100vh;*/
   padding-top:20px;
   display: flex;
@@ -23,5 +25,5 @@
   align-items: center;
   justify-content: center;
   font-size: calc(10px + 2vmin);
-  color: white;
+  /*color: white;*/
 }

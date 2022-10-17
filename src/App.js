@@ -13,10 +13,10 @@ function App() {
   
       <Routes>
         <Route exact path='/' element={
-          <ItemListContainer greeting="Noah Iluminación, lo último en tendencia para decorar y armonizar tus espacios." />
+          <ItemListContainer greeting="Lo último en tendencia para decorar y armonizar tus espacios" />
         }/>
         <Route exact path='/category/:id' element={
-          <ItemListContainer greeting="Aquí podrá encontrar el producto de la categoría elegida" />
+          <ItemListContainer greeting="Aquí podrá encontrar el producto de la categoría seleccionada" />
         }/>
         <Route exact path='/items/:id' element={
           <ItemDetailContainer />
