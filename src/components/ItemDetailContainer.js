@@ -1,10 +1,12 @@
 import { useEffect, useState } from "react"
 import { useParams } from "react-router-dom"
 import ItemDetail from "./ItemDetail";
+import Loader from '../components/Loader';
 
 const ItemDetailContainer = () => {
     const { id } = useParams();
     const [producto, setProducto] = useState({});
+    const [isloading, setLoading] = useState(true);
 
     useEffect(() => {
             console.log(`Mostrando Item ${id}`);
@@ -43,16 +45,22 @@ const ItemDetailContainer = () => {
                     setProducto(result[0]);
             }).catch((err)=>{
                 console.log(err);
-            }).finally(()=>{});
+            }).finally(()=>{
+                setLoading(false);
+            });
 
     }, [id]);
 
     return(
         <>
             <div className="App">
-                <section className="App-detail">
-                    <ItemDetail item={producto} />
-                </section>
+                {isloading ? 
+                    <Loader loadingText="Cargando detalle..." detail={true} /> 
+                    : 
+                    <section className="App-detail">
+                        <ItemDetail item={producto} />
+                    </section>
+                }
             </div>
         </>
     )

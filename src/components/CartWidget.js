@@ -6,7 +6,7 @@ const CartWidget = () => {
     return(
         <>
             <Nav>
-                <Nav.Link href="#">
+                <Nav.Link className="nav-cart" href="#">
                     <BsCart />
                 </Nav.Link>
             </Nav>

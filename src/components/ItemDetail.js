@@ -6,10 +6,12 @@ const ItemDetail = ({item}) => {
     return (
         <Container>
             <Row>
-                <Col>
-                    <img className="itemImage" src={item.pictureUrl} alt={item.description} />
+                <Col sm={12} md={6}>
+                    <div className="itemDetailImageContainer">
+                        <img className="itemDetailImage" src={item.pictureUrl} alt={item.description} />
+                    </div>
                 </Col>
-                <Col>
+                <Col sm={12} md={6}>
                     <Card>
                         {/*<Card.Header>Featured</Card.Header>*/}
                         <Card.Body>
@@ -24,11 +26,6 @@ const ItemDetail = ({item}) => {
                             {/*</Link>*/}
                         </Card.Footer>
                     </Card>
-
-                    
-                    
-                    
-
                 </Col>
             </Row>
         </Container>

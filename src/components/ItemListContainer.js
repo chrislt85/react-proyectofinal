@@ -1,13 +1,16 @@
 import { useParams } from "react-router-dom"
 import { useEffect, useState } from "react"
 import ItemList from '../components/ItemList';
-
+import Loader from '../components/Loader';
 
 const ItemListContainer = ({ greeting }) => {
-    const { id } = useParams();
     const [productos, setProductos] = useState([]);
-    
+    const [isloading, setLoading] = useState(true);
+    const { id } = useParams();
+
     useEffect(() => {
+            
+            
             if (id !== undefined)
                 console.log(`Estoy en la categoria ${id}`);
             else
@@ -17,6 +20,8 @@ const ItemListContainer = ({ greeting }) => {
             //    console.log(`Vengo de la anterior categoria ${id}`);
             //}
 
+            // se carga el loader nuevamente (para evitar que NO se muestre si paso de una sección a otra)
+            setLoading(true);
             // ACA SIMULO EL LLAMADO PARA CARGAR TODOS LOS PRODUCTOS DE LA CATEGORIA CORRESPONDIENTE (todos si estoy en el HOME)
             const task = new Promise((resolve, reject) => {
                 setTimeout(()=>{
@@ -53,7 +58,9 @@ const ItemListContainer = ({ greeting }) => {
                 setProductos(result);
             }).catch((err)=>{
                 console.log(err);
-            }).finally(()=>{});
+            }).finally(()=>{
+                setLoading(false);
+            });
     }, [id]);
 
     return(
@@ -65,7 +72,11 @@ const ItemListContainer = ({ greeting }) => {
                     </h5>
                 </header>
                 <section className="App-body">
-                    <ItemList products={productos} />
+                    {isloading ? 
+                        <Loader loadingText="Cargando productos..." detail={false} />
+                        :
+                        <ItemList products={productos} />
+                    }
                 </section>
             </div>
         </>

@@ -1,8 +1,14 @@
-.itemImage{
+.itemDetailImage{
     /*max-width:25rem;*/
     /*width:100%;*/
     /*min-height: 90vh;*/
-    border: solid 1px lightgray;
+    /*width:21rem;*/
+    height:20rem;
+    /*border: solid 1px lightgray;*/
+}
+
+.itemDetailImageContainer{
+    margin-bottom: 10px;
 }
 
 .App-detail {
