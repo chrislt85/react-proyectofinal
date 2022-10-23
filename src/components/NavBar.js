@@ -3,6 +3,7 @@ import '../styles/NavBar.css';
 import { Navbar, Nav, Container } from "react-bootstrap"
 import { NavLink } from "react-router-dom"
 import CartWidget from "./CartWidget"
+import logo from '../assets/logo.png'
 
 const NavBar = () => {
     return(
@@ -11,7 +12,7 @@ const NavBar = () => {
                 <Container>
                     <Navbar.Toggle aria-controls="responsive-navbar-nav" />
                     <NavLink className="navbar-brand" to={`/`}> 
-                        <img alt="Noah Iluminacion" src="/logo.png" width="30" height="30" className="d-inline-block align-top" />{' '}
+                        <img alt="Noah Iluminacion" src={logo} width="30" height="30" className="d-inline-block align-top" />{' '}
                         Noah Iluminación
                     </NavLink>
                     <Navbar.Collapse id="responsive-navbar-nav">

@@ -23,3 +23,20 @@
     font-size: calc(10px + 2vmin);
     /*color: white;*/
 }
+
+.itemTitle{
+    font-size: 20px;
+}
+
+.itemDescription{
+    font-size: 16px;
+}
+
+.itemPrice{
+    font-size: 26px;
+}
+
+.purchaseControls{
+    /*border-top: 1px solid rgba(0,0,0,.125);*/
+    margin-bottom:15px;
+}
