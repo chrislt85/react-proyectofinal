@@ -1,7 +1,7 @@
 import '../styles/NavBar.css';
 
 import { Navbar, Nav, Container } from "react-bootstrap"
-import { NavLink } from "react-router-dom"
+import { Link, NavLink } from "react-router-dom"
 import CartWidget from "./CartWidget"
 import logo from '../assets/logo.png'
 
@@ -23,7 +23,9 @@ const NavBar = () => {
                             <NavLink className="nav-link" to={`/category/cartelesled`}>Carteles LED</NavLink>
                         </Nav>
                     </Navbar.Collapse>
-                    <CartWidget/>
+                    <Link to="/cart" className="cart-link nav-cart">
+                        <CartWidget/>
+				    </Link>
                 </Container>
             </Navbar>
         </>

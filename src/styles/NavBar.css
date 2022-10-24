@@ -8,6 +8,18 @@
     background-color:rgb(228, 241, 247);
 }
 
+.nav-cart{
+    color: rgba(0,0,0,.7);
+}
+
+.nav-cart.active{
+    color: rgba(0,0,0,.7);
+}
+
+.nav-cart:hover{
+    color: rgba(0,0,0,.5);
+}
+
 .navbar-brand{
     text-transform: capitalize;
     font-weight: 500;

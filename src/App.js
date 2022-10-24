@@ -4,6 +4,7 @@ import { BrowserRouter as Router, Routes, Route} from "react-router-dom"
 import NavBar from './components/NavBar';
 import ItemListContainer from './components/ItemListContainer';
 import ItemDetailContainer from './components/ItemDetailContainer';
+import Cart from './components/Cart';
 import CartContext from './components/CartContext';
 
 function App() {
@@ -23,13 +24,7 @@ function App() {
             <ItemDetailContainer />
           }/>
           <Route exact path='/cart' element={
-            <>
-              <p>ACA MUESTRO EL CARRITO!!!</p>
-              <p>ACA MUESTRO EL CARRITO!!!</p>
-              <p>ACA MUESTRO EL CARRITO!!!</p>
-              <p>ACA MUESTRO EL CARRITO!!!</p>
-              <p>ACA MUESTRO EL CARRITO!!!</p>
-            </>
+            <Cart />
           }/>
         </Routes>
       </Router>

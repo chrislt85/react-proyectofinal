@@ -1,19 +1,30 @@
 import '../styles/ItemDetail.css';
-import { Container, Row, Col, Card/*, Button*/ } from "react-bootstrap"
-import { useState } from "react"
-import ItemCart from '../components/ItemCart';
 
-import { Button } from "react-bootstrap"
-import { Link } from "react-router-dom"
+import { Container, Row, Col, Card/*, Button*/ } from "react-bootstrap";
+import { useState, useContext } from "react";
+import ItemCart from '../components/ItemCart';
+import Contexts from '../context/Contexts';
+import { BsCart } from "react-icons/bs";
+import { Button } from "react-bootstrap";
+import { Link } from "react-router-dom";
 
 const ItemDetail = ({item}) => {
 
-    const [finishpurchase, setFinishPurchase] = useState(false)
+    const context = useContext(Contexts.CartContext);
+    const [finishpurchase, setFinishPurchase] = useState(false);
 
     const onAdd= (quantityToAdd)=> {
         // Simulo que agrego el pedido en el contexto
-        console.log(`Se agregaron ${quantityToAdd} productos al carrito del producto "${item.title}"`);
+        // console.log(`Se agregaron ${quantityToAdd} productos al carrito del producto "${item.title}"`);
+        // Agrego el pedido en el contexto
+        context.addToCart(item, quantityToAdd);
+        // console.log("Carrito inicial:");
+        // console.log(context.cartList);
 
+        // context.setCartList([...context.cartList, {title: item.title, quantity: quantityToAdd}]);
+
+        // console.log("Carrito actual:");
+        // console.log(context.cartList);
         // Saco el componente "ItemCart", para que se reemplace por el boton de "Finalizar compra"
         setFinishPurchase(true);
     };
@@ -23,25 +34,30 @@ const ItemDetail = ({item}) => {
             <Row>
                 <Col sm={12} md={6}>
                     <div className="itemDetailImageContainer">
-                        <img className="itemDetailImage" src={item.pictureUrl} alt={item.description} />
+                        <img className="itemDetailImage" src={item.pictureUrl} alt={item.title} />
                     </div>
                 </Col>
                 <Col sm={12} md={6}>
                     <Card>
                         {/*<Card.Header>Featured</Card.Header>*/}
                         <Card.Body>
-                            <Card.Title><div className="itemTitle">{item.title}</div></Card.Title>
-                            <Card.Text><div className="itemDescription">{item.description}</div></Card.Text>
-                            <Card.Text><div className="itemPrice">$ {item.price}</div></Card.Text>
+                            <Card.Title className="itemTitle">{item.title}</Card.Title>
+                            <Card.Text className="itemDescription">{item.description}</Card.Text>
+                            <Card.Text className="itemPrice">$ {item.price}</Card.Text>
                         </Card.Body>
-                        <Card.Body class="purchaseControls">
+                        <Card.Body className="purchaseControls">
                             {
                                 finishpurchase ?
-                                    <Link to={`/cart`}>
-                                        <Button variant="dark">Terminar compra</Button>
-                                    </Link>
+                                        <>
+                                            <Link to={`/`} style={{ marginRight: '20px' }}>
+                                                <Button variant="dark">Seguir comprando</Button>
+                                            </Link>
+                                            <Link to={`/cart`}>
+                                                <Button variant="dark"><BsCart style={{marginTop:'-4px'}}/> Ir al carrito</Button>
+                                            </Link>
+                                        </>
                                     :
-                                <ItemCart stock={item.stock} initial={1} onAdd={onAdd} />
+                                    <ItemCart stock={item.stock} initial={1} onAdd={onAdd} />
                             }
                         </Card.Body>
                         <Card.Footer className="text-muted" style={{ fontSize: '15px' }}>
