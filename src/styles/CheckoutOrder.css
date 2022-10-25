@@ -1,0 +1,19 @@
+.modalOrder .modal-content{
+    background-color: #282c34;/*#1d2021;*/
+    color:lightgray;
+}
+
+.orderId{
+    font-weight: bold;
+}
+
+.modalOrder .modal-title, .modalOrder .modal-body{
+    text-align: center;
+}
+
+.formFooter{
+    /*display: flex;*/
+    justify-content: center;
+    padding: 0.75rem 0 0 0.75rem;
+    /*border-top: 1px solid #dee2e6;*/
+}
