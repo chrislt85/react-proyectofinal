@@ -16,6 +16,7 @@ const Cart = () => {
     const [showCheckoutOrder, setShowCheckoutOrder] = useState(false);
     const [validatedCheckoutForm, setValidatedCheckoutForm] = useState(false);
     const [errorMessage, setErrorMessage] = useState("Este campo es obligatorio.");
+    const [orderId, setOrderId] = useState("");
 
     // const handleCloseCheckoutForm = () => setShowCheckoutForm(false);
     // const handleShowCheckoutForm = () => setShowCheckoutForm(true);
@@ -74,15 +75,12 @@ const Cart = () => {
             console.log(order);
             
             setValidatedCheckoutForm(false);
-            console.log(">> setValidatedCheckoutForm");
             setShowCheckoutForm(false);
-            console.log(">> setShowCheckoutForm");
+            
+            setOrderId("9876543210");
             setShowCheckoutOrder(true);
-            console.log(">> setShowCheckoutOrder");
 
             context.clearCart();
-            console.log(">> clearCart");
-
         }
     };
 
@@ -157,7 +155,7 @@ const Cart = () => {
                                     handleSubmitCheckoutForm={handleSubmitCheckoutForm}
                                     handleCloseCheckoutForm={handleCloseCheckoutForm} 
                                 />
-                    <CheckoutOrder showCheckoutOrder={showCheckoutOrder} orderId={123456} />
+                    <CheckoutOrder showCheckoutOrder={showCheckoutOrder} orderId={orderId} />
                 </div>
             </div>
         </>
