@@ -3,7 +3,7 @@ import { Container, Row, Col } from "react-bootstrap"
 
 const ItemList = ({products}) => {
 
-    console.log('Productos', products);
+    // console.log('Productos', products);
     return(
         <Container>
             <Row>

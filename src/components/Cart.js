@@ -8,6 +8,7 @@ import Table from 'react-bootstrap/Table';
 import { BsFillTrashFill } from "react-icons/bs";
 import CheckoutForm from './CheckoutForm';
 import CheckoutOrder from './CheckoutOrder';
+import { addNewDocument, getServerTimestamp, filterCollection } from '../utils/Firebase';
 
 const Cart = () => {
     
@@ -57,30 +58,70 @@ const Cart = () => {
         {
             console.log("HACIENDO CHECKOUT...");
             let order = {
-                date: new Date(),
                 buyer: {
                     name: event.currentTarget.name.value,
                     phone: event.currentTarget.phone.value,
                     email: event.currentTarget.email.value
                 },
-                total: context.getTotalPriceInCart(),
                 items: context.cartList.map((item) => {
-                    return { id: item.id, name: item.name, quantity: item.quantity, price:item.price };
-                })
+                    return { id: item.id, title: item.title, quantity: item.quantity, price:item.price };
+                }),
+                total: context.getTotalPriceInCart(),
+                date: getServerTimestamp()
             };
             console.log(order);
 
-            //addSingleDoc(context.value)
-            
-            console.log(order);
-            
+
+            console.log(order.items.map((item) => item.id.toString()));
+            const response = filterCollection("items",["id","in", order.items.map((item) => item.id.toString())]);
+            response.then((result)=>{
+                console.log("ITEMS A ACTUALIZAR");
+                // console.log(result);
+                // console.log(result.docs);
+                console.log(result.docs.map((item)=>item.data()));
+                
+                result.docs.forEach((doc) => {
+                    console.log("id producto", doc.data().id);
+                    console.log("stock original", doc.data().stock);
+                    console.log("cantidad comprada", order.items.find((item) => item.id.toString() === doc.data().id).quantity);
+                    /*console.log({
+                        quantityorder: order.item.find((item) => item.id === doc.id).quantity,
+                        stockoriginal: doc.data().stock,
+                        stock: doc.data().stock - order.items.find((item) => item.id === doc.id).quantity
+                    });*/
+                });
+
+            }).catch((err)=>{
+                console.log("Error al obtener items a actualizar",err);
+            });
+
+            ///////////////////////////////////////////////////////////
+            // SE GUARDA LA ORDEN EN FIREBASE
+            /*const response = addNewDocument(order);
+            response.then((result)=>{
+                console.log(`ORDEN GENERADA ${result.id}`);
+
+                setValidatedCheckoutForm(false);
+                setShowCheckoutForm(false);
+                
+                setOrderId(result.id);
+                setShowCheckoutOrder(true);
+                
+            }).catch((err)=>{
+                console.log(err);
+            }).finally(()=>{
+                // ACA ACTUALIZO LOS ITEMS DE FIREBASE
+                context.clearCart();
+            });*/
+
+            ///////////////////////////////////////////////////////////
             setValidatedCheckoutForm(false);
             setShowCheckoutForm(false);
             
             setOrderId("9876543210");
             setShowCheckoutOrder(true);
 
-            context.clearCart();
+            //context.clearCart();
         }
     };
 
@@ -144,7 +185,7 @@ const Cart = () => {
                     :
                         <>
                             <p>Tu carrito está vacío</p>
-                            <Button as={Link} to="/" variant="dark">
+                            <Button as={Link} to="/" variant="outline-dark">
                                 Seguir comprando
                             </Button>
                         </>

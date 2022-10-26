@@ -32,7 +32,7 @@ const CheckoutOrder = ({showCheckoutOrder, orderId}) => {
                                 <p className="orderId">Su número de orden es #{orderId}.</p>
                             </Row>
                             <Row>
-                                <div className="modal-footer formFooter">
+                                <div className="modal-footer orderFooter">
                                     <Button as={Link} to="/" variant="outline-light" className="btnSeguirComprando">
                                         Seguir comprando
                                     </Button>

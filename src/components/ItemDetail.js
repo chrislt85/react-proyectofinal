@@ -50,7 +50,7 @@ const ItemDetail = ({item}) => {
                                 finishpurchase ?
                                         <>
                                             <Link to={`/`} style={{ marginRight: '20px' }}>
-                                                <Button variant="dark">Seguir comprando</Button>
+                                                <Button variant="outline-dark">Seguir comprando</Button>
                                             </Link>
                                             <Link to={`/cart`}>
                                                 <Button variant="dark"><BsCart style={{marginTop:'-4px'}}/> Ir al carrito</Button>

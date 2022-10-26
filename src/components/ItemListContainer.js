@@ -2,6 +2,7 @@ import { useParams } from "react-router-dom"
 import { useEffect, useState } from "react"
 import ItemList from '../components/ItemList';
 import Loader from '../components/Loader';
+import { filterCollection, getCollection } from '../utils/Firebase';
 
 const ItemListContainer = ({ greeting }) => {
     const [productos, setProductos] = useState([]);
@@ -21,8 +22,9 @@ const ItemListContainer = ({ greeting }) => {
 
             // se carga el loader nuevamente (para evitar que NO se muestre si paso de una sección a otra)
             setLoading(true);
+            
             // ACA SIMULO EL LLAMADO PARA CARGAR TODOS LOS PRODUCTOS DE LA CATEGORIA CORRESPONDIENTE (todos si estoy en el HOME)
-            const task = new Promise((resolve, reject) => {
+            const response = new Promise((resolve, reject) => {
                 setTimeout(()=>{
                     const mockItems = [
                         {id:1, category:'lamparas', title:"Velador de escritorio", description: "Velador Pinza Estilo 'Pixar' Flexible con Clip. Ideal para el escritorio, mesa de luz y demás", price:3800.00, stock:15, pictureUrl:"https://arcencohogar.vtexassets.com/arquivos/ids/284267-800-800?v=637651645816900000&width=800&height=800&aspect=true" },
@@ -50,16 +52,29 @@ const ItemListContainer = ({ greeting }) => {
                     else
                         resolve(mockItems.map((item) => ({ id: item.id, title: item.title, description: item.description, price: item.price, stock: item.stock, pictureUrl: item.pictureUrl })));
                 }, 2000);
-            })
+            });
             
-            task.then((result)=>{
-                console.log("Productos", result);
+            /*
+            useEffect(()=>{
+                const res = filterCollection("items",["categoryId","==",id])
+                res.then((res)=>{
+                    setItems(res.docs.map((value)=>value.data()));
+                })
+            },[id])
+            */
+            // const response = ((id !== undefined) ? filterCollection("items",["category","==", id]) : getCollection('items'));
+
+            response.then((result)=>{
                 setProductos(result);
+                //setProductos(result.docs.map((item)=>item.data()));
+                
+                console.log("Productos", result);
             }).catch((err)=>{
                 console.log(err);
             }).finally(()=>{
                 setLoading(false);
             });
+
     }, [id]);
 
     return(
@@ -74,7 +89,7 @@ const ItemListContainer = ({ greeting }) => {
                     {isloading ? 
                         <Loader loadingText="Cargando productos..." detail={false} />
                         :
-                        <ItemList products={productos} />
+                        <ItemList key="itemlist" products={productos} />
                     }
                 </section>
             </div>
