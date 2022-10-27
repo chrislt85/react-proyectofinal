@@ -26,7 +26,7 @@ export function updateItems(itemsToUpdate, cartList) {
 
     itemsToUpdate.forEach((doc) => {
         batch.update(doc.ref, {
-            stock: doc.data().stock - cartList.find((item) => item.id === doc.id).quantity
+            stock: doc.data().stock - cartList.find((item) => item.id.toString() === doc.data().id).quantity
         });
     });
 

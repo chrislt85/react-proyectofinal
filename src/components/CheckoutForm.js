@@ -19,6 +19,7 @@ const CheckoutForm = ({showCheckoutForm, validatedCheckoutForm, errorMessage, ha
                     <Modal.Title>Orden de compra</Modal.Title>
                 </Modal.Header>
                 <Modal.Body>
+                    <h6 className="mensajeIngreseDatos">Ingrese sus datos:</h6>
                     <Form noValidate validated={validatedCheckoutForm} onSubmit={handleSubmitCheckoutForm}>
                         <InputGroup className="mb-3" hasValidation>
                             <InputGroup.Text id="checkoutForm.ControlName"><BsFillPersonFill/></InputGroup.Text>
