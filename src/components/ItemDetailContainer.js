@@ -2,7 +2,7 @@ import { useEffect, useState } from "react"
 import { useParams } from "react-router-dom"
 import ItemDetail from "./ItemDetail";
 import Loader from '../components/Loader';
-import ItemNotFound from '../components/ItemNotFound';
+import NotFoundMessage from '../components/NotFoundMessage';
 import { filterCollection } from '../utils/Firebase';
 
 const ItemDetailContainer = () => {
@@ -80,7 +80,7 @@ const ItemDetailContainer = () => {
                     <Loader loadingText="Cargando detalle..." detail={true} /> 
                     : 
                         itemnotfound ? 
-                            <ItemNotFound />
+                            <NotFoundMessage title="El producto no existe!" message="El producto que estabas buscando no pudo ser encontrado." />
                         :
                             <section className="App-detail">
                                 <ItemDetail item={producto} />

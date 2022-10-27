@@ -46,7 +46,7 @@ const NavBar = () => {
                             {categories.map((category)=>{
                                 return <NavLink className="nav-link" key={category.categoryId} to={`/category/${category.categoryId}`}>{category.categoryName}</NavLink>
                             })}
-
+                            <NavLink className="nav-link" to={`/category/fake`}>FAKE</NavLink>
                             {/*<NavLink className="nav-link" to={`/category/lamparas`}>Lámparas</NavLink>
                             <NavLink className="nav-link" to={`/category/apliques`}>Apliques</NavLink>
                             <NavLink className="nav-link" to={`/category/colgantes`}>Colgantes</NavLink>

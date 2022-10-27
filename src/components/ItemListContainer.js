@@ -7,6 +7,7 @@ import { filterCollection, getCollection } from '../utils/Firebase';
 const ItemListContainer = ({ greeting }) => {
     const [productos, setProductos] = useState([]);
     const [isloading, setLoading] = useState(true);
+    const [itemsnotfound, setItemsNotFound] = useState(false);
     const { id } = useParams();
 
     useEffect(() => {
@@ -65,9 +66,13 @@ const ItemListContainer = ({ greeting }) => {
             // const response = ((id !== undefined) ? filterCollection("items",["category","==", id]) : getCollection('items'));
 
             response.then((result)=>{
-                setProductos(result);
-                //setProductos(result.docs.map((item)=>item.data()));
                 
+                setProductos(result);
+                setItemsNotFound(result.length === 0);
+                //if (result.size > 0)
+                //    setProductos(result.docs.map((item)=>item.data()));
+                
+                //setItemsNotFound(result.size === 0);
                 console.log("Productos", result);
             }).catch((err)=>{
                 console.log(err);
@@ -80,11 +85,17 @@ const ItemListContainer = ({ greeting }) => {
     return(
         <>
             <div className="App">
-                <header className="App-header">
-                    <h5>
-                        {greeting}
-                    </h5>
-                </header>
+                {
+                    (!isloading && itemsnotfound) ? 
+                        <>
+                        </>
+                    :
+                        <header className="App-header">
+                            <h5>
+                                {greeting}
+                            </h5>
+                        </header>
+                }
                 <section className="App-body">
                     {isloading ? 
                         <Loader loadingText="Cargando productos..." detail={false} />

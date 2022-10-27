@@ -1,5 +1,6 @@
 import Item from '../components/Item';
 import { Container, Row, Col } from "react-bootstrap"
+import NotFoundMessage from '../components/NotFoundMessage';
 
 const ItemList = ({products}) => {
 
@@ -7,11 +8,18 @@ const ItemList = ({products}) => {
     return(
         <Container>
             <Row>
-                {products.map((product) => (
-                    <Col>
-                        <Item key={product.id} item={product} />
-                    </Col>
-                ))}
+                {
+                    (products.length > 0) ?
+                        products.map((product) => (
+                            <Col>
+                                <Item key={product.id} item={product} />
+                            </Col>
+                        ))
+                    :
+                        <Col>
+                            <NotFoundMessage title="" message="No hay productos a mostrar." />
+                        </Col>
+                }
             </Row>
         </Container>
     )

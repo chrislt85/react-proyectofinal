@@ -2,7 +2,7 @@ import '../styles/ItemDetail.css';
 
 import { Container, Row, Col, Card, Button } from "react-bootstrap";
 import { useState, useContext } from "react";
-import ItemCart from '../components/ItemCart';
+import ItemCount from '../components/ItemCount';
 import ItemStock from '../components/ItemStock';
 import ContinueShoppingButton from '../components/ContinueShoppingButton';
 import Contexts from '../context/Contexts';
@@ -56,7 +56,7 @@ const ItemDetail = ({item}) => {
                                             </Button>
                                         </>
                                     :
-                                    <ItemCart stock={item.stock} initial={1} onAdd={onAdd} />
+                                    <ItemCount stock={item.stock} initial={1} onAdd={onAdd} />
                             }
                         </Card.Body>
                         <Card.Footer className="text-muted itemStock">

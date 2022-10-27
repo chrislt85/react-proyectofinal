@@ -1,9 +1,9 @@
-import '../styles/ItemCart.css';
+import '../styles/ItemCount.css';
 import { useState } from "react"
 import { Container, Row, Col, Button, ButtonGroup } from "react-bootstrap"
 
 
-const ItemCart = ({stock, initial, onAdd}) => {
+const ItemCount = ({stock, initial, onAdd}) => {
     const [count, setCount] = useState(initial);
     
     const handleAddCount = () => {
@@ -36,4 +36,4 @@ const ItemCart = ({stock, initial, onAdd}) => {
     )
 }
 
-export default ItemCart
+export default ItemCount
