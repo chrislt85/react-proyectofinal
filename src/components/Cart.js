@@ -2,12 +2,12 @@ import '../styles/Cart.css';
 
 import React, { /*useEffect, */useState, useContext } from 'react'
 import Contexts from '../context/Contexts';
-import { Container, Row, Col, Card, Button } from "react-bootstrap";
+import { Container, Row, Col, Card, Button, Table } from "react-bootstrap";
 import { Link } from "react-router-dom";
-import Table from 'react-bootstrap/Table';
 import { BsFillTrashFill } from "react-icons/bs";
 import CheckoutForm from './CheckoutForm';
 import CheckoutOrder from './CheckoutOrder';
+import ContinueShoppingButton from '../components/ContinueShoppingButton';
 import { addNewDocument, getServerTimestamp, filterCollection, updateItems } from '../utils/Firebase';
 
 const Cart = () => {
@@ -136,7 +136,6 @@ const Cart = () => {
         <>
             <div className="App">
                 <div className="cart-detail">
-
                     {(context.getTotalItemsInCart() > 0) ?
                         <Container>
                             <Row>
@@ -178,7 +177,7 @@ const Cart = () => {
                             </Row>
                             <Row>
                                 <Col>
-                                    <Button variant="dark" style={{ marginRight: '20px' }} onClick={() => setShowCheckoutForm(true)}>Terminar mi compra</Button>
+                                    <Button className="btnTerminarCompra" variant="dark" onClick={() => setShowCheckoutForm(true)}>Terminar mi compra</Button>
                                     <Button variant="outline-danger" onClick={() => context.clearCart()}>Vaciar carrito</Button>
                                 </Col>
                             </Row>
@@ -186,9 +185,7 @@ const Cart = () => {
                     :
                         <>
                             <p>Tu carrito está vacío</p>
-                            <Button as={Link} to="/" variant="outline-dark">
-                                Seguir comprando
-                            </Button>
+                            <ContinueShoppingButton styleClass="outline-dark" />
                         </>
                     }
                     <CheckoutForm showCheckoutForm={showCheckoutForm} 

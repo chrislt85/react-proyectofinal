@@ -1,11 +1,12 @@
 import '../styles/ItemDetail.css';
 
-import { Container, Row, Col, Card/*, Button*/ } from "react-bootstrap";
+import { Container, Row, Col, Card, Button } from "react-bootstrap";
 import { useState, useContext } from "react";
 import ItemCart from '../components/ItemCart';
+import ItemStock from '../components/ItemStock';
+import ContinueShoppingButton from '../components/ContinueShoppingButton';
 import Contexts from '../context/Contexts';
 import { BsCart } from "react-icons/bs";
-import { Button } from "react-bootstrap";
 import { Link } from "react-router-dom";
 
 const ItemDetail = ({item}) => {
@@ -49,28 +50,17 @@ const ItemDetail = ({item}) => {
                             {
                                 finishpurchase ?
                                         <>
-                                            <Link to={`/`} style={{ marginRight: '20px' }}>
-                                                <Button variant="outline-dark">Seguir comprando</Button>
-                                            </Link>
-                                            <Link to={`/cart`}>
-                                                <Button variant="dark"><BsCart style={{marginTop:'-4px'}}/> Ir al carrito</Button>
-                                            </Link>
+                                            <ContinueShoppingButton styleClass="outline-dark" />
+                                            <Button as={Link} to="/cart" variant="dark" className="btnIrAlCarrito">
+                                                <BsCart className="cartIcon" /> Ir al carrito
+                                            </Button>
                                         </>
                                     :
                                     <ItemCart stock={item.stock} initial={1} onAdd={onAdd} />
                             }
                         </Card.Body>
-                        <Card.Footer className="text-muted" style={{ fontSize: '15px' }}>
-                            {
-                                (item.stock === 0) 
-                                ?
-                                    <span>Sin stock disponible</span>
-                                :
-                                    (item.stock === 1) ?
-                                        <span>¡Última unidad disponible!</span>
-                                    :
-                                        <span>Stock disponible: {item.stock} unidades</span>
-                            }
+                        <Card.Footer className="text-muted itemStock">
+                            <ItemStock stock={item.stock} />
                         </Card.Footer>
                     </Card>
                 </Col>

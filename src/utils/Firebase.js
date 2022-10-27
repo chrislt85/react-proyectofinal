@@ -1,4 +1,4 @@
-import { getFirestore, collection, addDoc, getDocs, /*doc, getDoc,*/ query, where, serverTimestamp, writeBatch } from "firebase/firestore";
+import { getFirestore, collection, addDoc, getDocs, query, where, serverTimestamp, writeBatch } from "firebase/firestore";
 
 const db = () => getFirestore();
 
@@ -32,10 +32,3 @@ export function updateItems(itemsToUpdate, cartList) {
 
     batch.commit();
 };
-
-
-/*
-export function getSingleDoc(collection="", id="") {
-    const data = doc(db(), collection, id)
-    return getDoc(data)
-}*/

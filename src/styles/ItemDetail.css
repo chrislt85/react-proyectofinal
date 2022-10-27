@@ -40,3 +40,15 @@
     /*border-top: 1px solid rgba(0,0,0,.125);*/
     margin-bottom:15px;
 }
+
+.purchaseControls .btnIrAlCarrito{
+    margin-left: 20px;
+}
+
+.cartIcon{
+    margin-top:-4px;
+}
+
+.itemStock{
+    font-size:15px;
+}
