@@ -1,6 +1,7 @@
 import '../styles/ItemCount.css';
-import { useState } from "react"
-import { Container, Row, Col, Button, ButtonGroup } from "react-bootstrap"
+
+import { useState } from "react";
+import { Container, Row, Col, Button, ButtonGroup } from "react-bootstrap";
 
 
 const ItemCount = ({stock, initial, onAdd}) => {

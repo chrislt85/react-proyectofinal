@@ -1,9 +1,8 @@
 import '../styles/Cart.css';
 
-import React, { /*useEffect, */useState, useContext } from 'react'
+import React, { useState, useContext } from 'react'
 import Contexts from '../context/Contexts';
 import { Container, Row, Col, Card, Button, Table } from "react-bootstrap";
-import { Link } from "react-router-dom";
 import { BsFillTrashFill } from "react-icons/bs";
 import CheckoutForm from './CheckoutForm';
 import CheckoutOrder from './CheckoutOrder';
@@ -12,25 +11,14 @@ import { addNewDocument, getServerTimestamp, filterCollection, updateItems } fro
 
 const Cart = () => {
     
-    // const [cartlist, setCart] = useState([]);
     const [showCheckoutForm, setShowCheckoutForm] = useState(false);
     const [showCheckoutOrder, setShowCheckoutOrder] = useState(false);
     const [validatedCheckoutForm, setValidatedCheckoutForm] = useState(false);
     const [errorMessage, setErrorMessage] = useState("Este campo es obligatorio.");
     const [orderId, setOrderId] = useState("");
 
-    // const handleCloseCheckoutForm = () => setShowCheckoutForm(false);
-    // const handleShowCheckoutForm = () => setShowCheckoutForm(true);
-
     // Se accede al contexto con el hook useContext
     const context = useContext(Contexts.CartContext);
-    
-
-    /*useEffect(()=>{
-        setCart(context.cartList);
-        console.log(context.cartList);
-      },[context.cartList]);*/
-
 
     const handleSubmitCheckoutForm = (event) => {
         console.log("handleSubmitCheckoutForm");
@@ -165,7 +153,6 @@ const Cart = () => {
                                         })}
                                     </tbody>
                                 </Table>
-
                                 <Card className="totalPrice">
                                     <Card.Header>
                                         <Card.Text>Total</Card.Text>

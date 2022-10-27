@@ -1,6 +1,6 @@
 import '../styles/Loader.css';
-// import { Container, Row, Col } from "react-bootstrap"
-import { useEffect, useState } from "react"
+
+import { useEffect, useState } from "react";
 import Spinner from 'react-bootstrap/Spinner';
 
 const Loader = ({loadingText, detail}) => {

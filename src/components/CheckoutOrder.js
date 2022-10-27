@@ -1,20 +1,7 @@
 import '../styles/CheckoutOrder.css';
 
-/*import React, { useState } from 'react';*/
-import Modal from 'react-bootstrap/Modal';
-/*import Form from 'react-bootstrap/Form';*/
-/*import Button from 'react-bootstrap/Button';*/
-/*import { Link } from "react-router-dom";*/
-/*import InputGroup from 'react-bootstrap/InputGroup';
-import { BsFillPersonFill } from "react-icons/bs";
-import { BsTelephoneFill } from "react-icons/bs";
-import { MdEmail } from "react-icons/md";*/
-
-import Container from 'react-bootstrap/Container';
-import Col from 'react-bootstrap/Col';
-import Row from 'react-bootstrap/Row';
+import { Modal, Container, Col, Row } from 'react-bootstrap';
 import ContinueShoppingButton from '../components/ContinueShoppingButton';
-
 
 const CheckoutOrder = ({showCheckoutOrder, orderId}) => {
 
@@ -40,13 +27,6 @@ const CheckoutOrder = ({showCheckoutOrder, orderId}) => {
                         </Col>
                     </Container>
                 </Modal.Body>
-                {/*<Modal.Footer>
-                    <Col>
-                        <Row>
-                            
-                        </Row>
-                    </Col>
-                </Modal.Footer>*/}
             </Modal>
         </>
     )

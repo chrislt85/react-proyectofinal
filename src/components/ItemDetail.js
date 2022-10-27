@@ -15,18 +15,10 @@ const ItemDetail = ({item}) => {
     const [finishpurchase, setFinishPurchase] = useState(false);
 
     const onAdd= (quantityToAdd)=> {
-        // Simulo que agrego el pedido en el contexto
-        // console.log(`Se agregaron ${quantityToAdd} productos al carrito del producto "${item.title}"`);
         // Agrego el pedido en el contexto
         context.addToCart(item, quantityToAdd);
-        // console.log("Carrito inicial:");
-        // console.log(context.cartList);
 
-        // context.setCartList([...context.cartList, {title: item.title, quantity: quantityToAdd}]);
-
-        // console.log("Carrito actual:");
-        // console.log(context.cartList);
-        // Saco el componente "ItemCart", para que se reemplace por el boton de "Finalizar compra"
+        // Saco el componente "ItemCount", para que se reemplace por el boton de "Ir al carrito"
         setFinishPurchase(true);
     };
 
@@ -40,7 +32,6 @@ const ItemDetail = ({item}) => {
                 </Col>
                 <Col sm={12} md={6}>
                     <Card>
-                        {/*<Card.Header>Featured</Card.Header>*/}
                         <Card.Body>
                             <Card.Title className="itemTitle">{item.title}</Card.Title>
                             <Card.Text className="itemDescription">{item.description}</Card.Text>

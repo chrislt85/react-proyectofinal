@@ -1,14 +1,8 @@
 import '../styles/CheckoutForm.css';
 
-/*import React, { useState } from 'react';*/
-import Modal from 'react-bootstrap/Modal';
-import Form from 'react-bootstrap/Form';
-import Button from 'react-bootstrap/Button';
-import InputGroup from 'react-bootstrap/InputGroup';
-import { BsFillPersonFill } from "react-icons/bs";
-import { BsTelephoneFill } from "react-icons/bs";
+import { Modal, Form, Button, InputGroup } from 'react-bootstrap';
+import { BsFillPersonFill, BsTelephoneFill } from "react-icons/bs";
 import { MdEmail } from "react-icons/md";
-
 
 const CheckoutForm = ({showCheckoutForm, validatedCheckoutForm, errorMessage, handleSubmitCheckoutForm, handleCloseCheckoutForm}) => {
 

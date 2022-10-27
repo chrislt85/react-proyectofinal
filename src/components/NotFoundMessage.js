@@ -1,4 +1,5 @@
 import '../styles/NotFoundMessage.css';
+
 import ContinueShoppingButton from './ContinueShoppingButton';
 
 const NotFoundMessage = ({title, message}) => {

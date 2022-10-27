@@ -14,13 +14,12 @@ const NavBar = () => {
     useEffect(() => {
 
         const categorias = [
-            {categoryId: 'lamparas', categoryName: 'Lámparas111'},
-            {categoryId: 'apliques', categoryName: 'Apliques222'},
-            {categoryId: 'colgantes', categoryName: 'Colgantes333'},
-            {categoryId: 'cartelesled', categoryName: 'Carteles LED444'}
+            {categoryId: 'lamparas', categoryName: 'Lámparas'},
+            {categoryId: 'apliques', categoryName: 'Apliques'},
+            {categoryId: 'colgantes', categoryName: 'Colgantes'},
+            {categoryId: 'cartelesled', categoryName: 'Carteles LED'}
         ];
         setCategories(categorias);
-        console.log('leyendo categorias...');
 
         /*getCollection('categories')
         .then((categories)=>{
@@ -46,11 +45,6 @@ const NavBar = () => {
                             {categories.map((category)=>{
                                 return <NavLink className="nav-link" key={category.categoryId} to={`/category/${category.categoryId}`}>{category.categoryName}</NavLink>
                             })}
-                            <NavLink className="nav-link" to={`/category/fake`}>FAKE</NavLink>
-                            {/*<NavLink className="nav-link" to={`/category/lamparas`}>Lámparas</NavLink>
-                            <NavLink className="nav-link" to={`/category/apliques`}>Apliques</NavLink>
-                            <NavLink className="nav-link" to={`/category/colgantes`}>Colgantes</NavLink>
-                            <NavLink className="nav-link" to={`/category/cartelesled`}>Carteles LED</NavLink>*/}
                         </Nav>
                     </Navbar.Collapse>
                     <Link to="/cart" className="cart-link nav-cart">

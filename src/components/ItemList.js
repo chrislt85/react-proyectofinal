@@ -4,7 +4,6 @@ import NotFoundMessage from '../components/NotFoundMessage';
 
 const ItemList = ({products}) => {
 
-    // console.log('Productos', products);
     return(
         <Container>
             <Row>
