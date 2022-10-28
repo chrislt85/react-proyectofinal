@@ -1,6 +1,9 @@
 # Noah Iluminación
 > Proyecto de e-commerce desarrollado para el curso de ReactJS de CoderHouse.
 
+## Demo
+Para ver un demo funcional, hacer click [aquí](https://635b2c8817ddc8121aa8b2c4--dashing-bunny-0589e5.netlify.app/).
+
 ## Incluye
 > Listado de productos y detalle de cada uno. Posibilidad de agregar productos al carrito, indicando la cantidad deseada (nunca pudiendo superarl stock disponible). Manejo de carrito: muestra de productos elegidos, posibilidad de borrado de items, y total acumulado. Posibilidad de "Finalizar la compra" (ingreso de datos validados, y checkout final con ID de orden generada en Firebase). Pantallas de error ante categorías vacías o productos inexistentes.
 
