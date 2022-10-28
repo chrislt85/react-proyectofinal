@@ -13,20 +13,20 @@ const NavBar = () => {
 
     useEffect(() => {
 
-        const categorias = [
+        /*const categorias = [
             {categoryId: 'lamparas', categoryName: 'Lámparas'},
             {categoryId: 'apliques', categoryName: 'Apliques'},
             {categoryId: 'colgantes', categoryName: 'Colgantes'},
             {categoryId: 'cartelesled', categoryName: 'Carteles LED'}
         ];
-        setCategories(categorias);
+        setCategories(categorias);*/
 
-        /*getCollection('categories')
+        getCollection('categories')
         .then((categories)=>{
             setCategories(categories.docs.map((category)=>{
                 return category.data();
             }))
-        });*/
+        });
 
         return () => { }
       }, []);

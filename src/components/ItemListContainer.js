@@ -12,10 +12,10 @@ const ItemListContainer = ({ greeting }) => {
 
     useEffect(() => {
             
-            if (id !== undefined)
+            /*if (id !== undefined)
                 console.log(`Estoy en la categoria ${id}`);
             else
-                console.log(`Estoy en el HOME`);
+                console.log(`Estoy en el HOME`);*/
 
             //return () =>{
             //    console.log(`Vengo de la anterior categoria ${id}`);
@@ -25,7 +25,7 @@ const ItemListContainer = ({ greeting }) => {
             setLoading(true);
             
             // ACA SIMULO EL LLAMADO PARA CARGAR TODOS LOS PRODUCTOS DE LA CATEGORIA CORRESPONDIENTE (todos si estoy en el HOME)
-            const response = new Promise((resolve, reject) => {
+            /*const response = new Promise((resolve, reject) => {
                 setTimeout(()=>{
                     const mockItems = [
                         {id:1, category:'lamparas', title:"Velador de escritorio", description: "Velador Pinza Estilo 'Pixar' Flexible con Clip. Ideal para el escritorio, mesa de luz y demás", price:3800.00, stock:15, pictureUrl:"https://arcencohogar.vtexassets.com/arquivos/ids/284267-800-800?v=637651645816900000&width=800&height=800&aspect=true" },
@@ -53,7 +53,7 @@ const ItemListContainer = ({ greeting }) => {
                     else
                         resolve(mockItems.map((item) => ({ id: item.id, title: item.title, description: item.description, price: item.price, stock: item.stock, pictureUrl: item.pictureUrl })));
                 }, 2000);
-            });
+            });*/
             
             /*
             useEffect(()=>{
@@ -63,17 +63,15 @@ const ItemListContainer = ({ greeting }) => {
                 })
             },[id])
             */
-            // const response = ((id !== undefined) ? filterCollection("items",["category","==", id]) : getCollection('items'));
-
+            const response = ((id !== undefined) ? filterCollection("items",["category","==", id]) : getCollection('items'));
             response.then((result)=>{
                 
-                setProductos(result);
-                setItemsNotFound(result.length === 0);
-                //if (result.size > 0)
-                //    setProductos(result.docs.map((item)=>item.data()));
+                // setProductos(result);
+                // setItemsNotFound(result.length === 0);
+                if (result.size > 0)
+                    setProductos(result.docs.map((item)=>item.data()));
                 
-                //setItemsNotFound(result.size === 0);
-                console.log("Productos", result);
+                setItemsNotFound(result.size === 0);
             }).catch((err)=>{
                 console.log(err);
             }).finally(()=>{

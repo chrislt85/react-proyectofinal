@@ -12,13 +12,11 @@ const ItemDetailContainer = () => {
     const [itemnotfound, setItemNotFound] = useState(false);
 
     useEffect(() => {
-            const ran = Math.random();
-            console.log(`Mostrando Item ${id} - ${ran}`);
 
             setItemNotFound(false);
 
             // ACA SIMULO EL LLAMADO PARA CARGAR EL ITEM CORRESPONDIENTE
-            const response = new Promise((resolve, reject) => {
+            /*const response = new Promise((resolve, reject) => {
                 setTimeout(()=>{
                     const mockItems = [
                         {id:1, category:'lamparas', title:"Velador de escritorio", description: "Velador Pinza Estilo 'Pixar' Flexible con Clip. Ideal para el escritorio, mesa de luz y demás", price:3800.00, stock:15, pictureUrl:"https://arcencohogar.vtexassets.com/arquivos/ids/284267-800-800?v=637651645816900000&width=800&height=800&aspect=true" },
@@ -43,27 +41,21 @@ const ItemDetailContainer = () => {
                     resolve(mockItems.filter(item => item.id == id)
                                      .map((item) => ({ id: item.id, title: item.title, description: item.description, price: item.price, stock: item.stock, pictureUrl: item.pictureUrl })));
                 }, 2000);
-            });
+            });*/
            
-            //const response = filterCollection("items",["id","==", id]);
-
+            const response = filterCollection("items",["id","==", id]);
             response.then((result)=>{
-                if (result.length > 0)
+                /*if (result.length > 0)
                     setProducto(result[0]);
                 else
                 {
                     setItemNotFound(true);
                     console.log("PRODUCTO NO ENCONTRADO!!!");
-                }
-                /*if (result.size > 0)
+                }*/
+                if (result.size > 0)
                     setProducto(result.docs.map((item)=>item.data())[0]);
                 else
-                {
                     setItemNotFound(true);
-                    console.log("PRODUCTO NO ENCONTRADO");
-                }*/
-
-                console.log("Item", result);
             }).catch((err)=>{
                 console.log(err);
             }).finally(()=>{

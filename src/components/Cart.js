@@ -21,7 +21,6 @@ const Cart = () => {
     const context = useContext(Contexts.CartContext);
 
     const handleSubmitCheckoutForm = (event) => {
-        console.log("handleSubmitCheckoutForm");
         
         event.preventDefault();
         event.stopPropagation();
@@ -44,7 +43,6 @@ const Cart = () => {
         }
         else
         {
-            console.log("HACIENDO CHECKOUT...");
             let order = {
                 buyer: {
                     name: event.currentTarget.name.value,
@@ -57,13 +55,10 @@ const Cart = () => {
                 total: context.getTotalPriceInCart(),
                 date: getServerTimestamp()
             };
-            console.log(order);
 
-            ///////////////////////////////////////////////////////////
             // SE GUARDA LA ORDEN EN FIREBASE
-            /*const response = addNewDocument(order);
+            const response = addNewDocument(order);
             response.then((result)=>{
-                console.log(`ORDEN GENERADA ${result.id}`);
 
                 setValidatedCheckoutForm(false);
                 setShowCheckoutForm(false);
@@ -71,45 +66,24 @@ const Cart = () => {
                 setOrderId(result.id);
                 setShowCheckoutOrder(true);
                 
-            }).catch((err)=>{
-                console.log(err);
-            }).finally(()=>{
-                // ACA ACTUALIZO LOS ITEMS DE FIREBASE
-                // console.log(order.items.map((item) => item.id.toString()));
+                // Aca actualizo los items de Firebase
                 const response = filterCollection("items",["id","in", order.items.map((item) => item.id.toString())]);
                 response.then((result)=>{
-                    // console.log("ITEMS A ACTUALIZAR");
-                    // console.log(result);
-                    // console.log(result.docs);
-                    // console.log(result.docs.map((item)=>item.data()));
-                    
-                    // result.docs.forEach((doc) => {
-                    //    console.log("id producto", doc.data().id);
-                    //    console.log("stock original", doc.data().stock);
-                    //    console.log("cantidad comprada", order.items.find((item) => item.id.toString() === doc.data().id).quantity);
-                    //    console.log({
-                    //        quantityorder: order.items.find((item) => item.id.toString() === doc.data().id).quantity,
-                    //        stockoriginal: doc.data().stock,
-                    //        nuevostock: doc.data().stock - order.items.find((item) => item.id.toString() === doc.data().id).quantity
-                    //    });
-                    // });
-                    console.log("Actualizando items...");
                     updateItems(result.docs, order.items);
-
                 }).catch((err)=>{
                     console.log("Error al obtener items a actualizar",err);
                 });
-
+            }).catch((err)=>{
+                console.log(err);
+            }).finally(()=>{
+                // Se limpia el carrito
                 context.clearCart();
-            });*/
+            });
 
-            ///////////////////////////////////////////////////////////
-            setValidatedCheckoutForm(false);
+            /*setValidatedCheckoutForm(false);
             setShowCheckoutForm(false);
-            
             setOrderId("9876543210");
-            setShowCheckoutOrder(true);
-
+            setShowCheckoutOrder(true);*/
             //context.clearCart();
         }
     };
