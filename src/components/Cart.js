@@ -33,7 +33,6 @@ const Cart = () => {
 
         if (!form.checkValidity() || (event.currentTarget.email.value !== event.currentTarget.emailconfirm.value))
         {
-            console.log(`ERROR EN VALIDACION!!! - checkValidity: ${form.checkValidity()} - EMAILS: ${(event.currentTarget.email.value === event.currentTarget.emailconfirm.value)}`);
             if (event.currentTarget.email.value !== event.currentTarget.emailconfirm.value)
             {
                 setErrorMessage("Los correos electrónicos no coinciden.");
@@ -56,7 +55,7 @@ const Cart = () => {
                 date: getServerTimestamp()
             };
 
-            // SE GUARDA LA ORDEN EN FIREBASE
+            // Se guarda la orden de compra en Firebase
             const response = addNewDocument(order);
             response.then((result)=>{
 
@@ -79,12 +78,6 @@ const Cart = () => {
                 // Se limpia el carrito
                 context.clearCart();
             });
-
-            /*setValidatedCheckoutForm(false);
-            setShowCheckoutForm(false);
-            setOrderId("9876543210");
-            setShowCheckoutOrder(true);*/
-            //context.clearCart();
         }
     };
 

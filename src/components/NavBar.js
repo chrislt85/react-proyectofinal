@@ -13,14 +13,6 @@ const NavBar = () => {
 
     useEffect(() => {
 
-        /*const categorias = [
-            {categoryId: 'lamparas', categoryName: 'Lámparas'},
-            {categoryId: 'apliques', categoryName: 'Apliques'},
-            {categoryId: 'colgantes', categoryName: 'Colgantes'},
-            {categoryId: 'cartelesled', categoryName: 'Carteles LED'}
-        ];
-        setCategories(categorias);*/
-
         getCollection('categories')
         .then((categories)=>{
             setCategories(categories.docs.map((category)=>{
