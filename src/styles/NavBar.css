@@ -4,7 +4,6 @@
 }
 
 .nav-link:not(.nav-cart):hover{
-    /*background-color:rgb(196, 231, 246);*/
     background-color:rgb(228, 241, 247);
 }
 

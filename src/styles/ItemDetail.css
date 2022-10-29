@@ -1,10 +1,5 @@
 .itemDetailImage{
-    /*max-width:25rem;*/
-    /*width:100%;*/
-    /*min-height: 90vh;*/
-    /*width:21rem;*/
     height:20rem;
-    /*border: solid 1px lightgray;*/
 }
 
 .itemDetailImageContainer{
@@ -12,7 +7,6 @@
 }
 
 .App-detail {
-    /*background-color: #282c34;*/
     background-color: white;
     min-height: 100vh;
     padding-top:70px;
@@ -21,7 +15,6 @@
     align-items: center;
     justify-content: center;
     font-size: calc(10px + 2vmin);
-    /*color: white;*/
 }
 
 .itemTitle{
@@ -37,7 +30,6 @@
 }
 
 .purchaseControls{
-    /*border-top: 1px solid rgba(0,0,0,.125);*/
     margin-bottom:15px;
 }
 

@@ -15,9 +15,7 @@
 }
 
 .itemImage {
-    /*padding:5px;*/
     width: 100%;
-    /*height: 20vw;*/
     height: 19rem;
     object-fit: cover;
 }
@@ -27,9 +25,6 @@
 }
 
 .itemCard .itemPrice{
-    /*border-top: 1px solid rgba(0,0,0,.125);
-    padding-top:2px;*/
-    /*font-family: Proxima Nova,-apple-system,Helvetica Neue,Helvetica,Roboto,Arial,sans-serif;*/
     font-size: 24px;
     font-weight: normal;
 }
