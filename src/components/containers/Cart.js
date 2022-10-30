@@ -12,8 +12,9 @@ import { addNewDocument, getServerTimestamp, filterCollection, updateItems } fro
 const Cart = () => {
     
     const [showCheckoutForm, setShowCheckoutForm] = useState(false);
-    const [showCheckoutOrder, setShowCheckoutOrder] = useState(false);
     const [validatedCheckoutForm, setValidatedCheckoutForm] = useState(false);
+    const [showCheckoutOrder, setShowCheckoutOrder] = useState(false);
+    const [showGeneratingOrder, setShowGeneratingOrder] = useState(true);
     const [errorMessage, setErrorMessage] = useState("Este campo es obligatorio.");
     const [orderId, setOrderId] = useState("");
 
@@ -55,16 +56,19 @@ const Cart = () => {
                 date: getServerTimestamp()
             };
 
+            // Se oculta el formulario y muestra el modal de "Generando orden"
+            setValidatedCheckoutForm(false);
+            setShowCheckoutForm(false);
+            setShowCheckoutOrder(true);
+            setShowGeneratingOrder(true);
+            
             // Se guarda la orden de compra en Firebase
             const response = addNewDocument(order);
             response.then((result)=>{
 
-                setValidatedCheckoutForm(false);
-                setShowCheckoutForm(false);
-                
                 setOrderId(result.id);
-                setShowCheckoutOrder(true);
-                
+                setShowGeneratingOrder(false);
+
                 // Aca actualizo los items de Firebase
                 const response = filterCollection("items",["id","in", order.items.map((item) => item.id.toString())]);
                 response.then((result)=>{
@@ -148,7 +152,7 @@ const Cart = () => {
                                     handleSubmitCheckoutForm={handleSubmitCheckoutForm}
                                     handleCloseCheckoutForm={handleCloseCheckoutForm} 
                                 />
-                    <CheckoutOrder showCheckoutOrder={showCheckoutOrder} orderId={orderId} />
+                    <CheckoutOrder showCheckoutOrder={showCheckoutOrder} generatingOrder={showGeneratingOrder} orderId={orderId} />
                 </div>
             </div>
         </>

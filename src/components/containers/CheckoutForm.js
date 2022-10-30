@@ -8,7 +8,7 @@ const CheckoutForm = ({showCheckoutForm, validatedCheckoutForm, errorMessage, ha
 
     return(
         <>
-            <Modal className="modalCheckout" show={showCheckoutForm} onHide={handleCloseCheckoutForm}>
+            <Modal className="modalCheckout" show={showCheckoutForm} onHide={handleCloseCheckoutForm} aria-labelledby="contained-modal-title-vcenter" centered>
                 <Modal.Header closeButton closeVariant="white">
                     <Modal.Title>Orden de compra</Modal.Title>
                 </Modal.Header>
