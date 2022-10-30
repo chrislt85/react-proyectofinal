@@ -1,4 +1,4 @@
-import '../styles/ItemCount.css';
+import '../../styles/ItemCount.css';
 
 import { useState } from "react";
 import { Container, Row, Col, Button, ButtonGroup } from "react-bootstrap";

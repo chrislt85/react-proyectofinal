@@ -1,6 +1,6 @@
-import Item from '../components/Item';
+import Item from './Item';
 import { Container, Row, Col } from "react-bootstrap"
-import NotFoundMessage from '../components/NotFoundMessage';
+import NotFoundMessage from '../presentation/NotFoundMessage';
 
 const ItemList = ({products}) => {
 

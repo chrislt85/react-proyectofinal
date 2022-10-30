@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import Contexts from '../context/Contexts';
+import Contexts from '../../context/Contexts';
 
 export default function CartContext({children}) {
   

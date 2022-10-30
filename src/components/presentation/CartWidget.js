@@ -1,9 +1,9 @@
-import '../styles/CartWidget.css';
+import '../../styles/CartWidget.css';
 
 import { useContext } from "react"
 import { Badge } from "react-bootstrap"
 import { BsCart } from "react-icons/bs";
-import Contexts from '../context/Contexts';
+import Contexts from '../../context/Contexts';
 
 const CartWidget = () => {
 

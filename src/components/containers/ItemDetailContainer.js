@@ -1,9 +1,9 @@
 import { useEffect, useState } from "react"
 import { useParams } from "react-router-dom"
-import ItemDetail from "./ItemDetail";
-import Loader from '../components/Loader';
-import NotFoundMessage from '../components/NotFoundMessage';
-import { filterCollection } from '../utils/Firebase';
+import ItemDetail from "../containers/ItemDetail";
+import Loader from '../presentation/Loader';
+import NotFoundMessage from '../presentation/NotFoundMessage';
+import { filterCollection } from '../../utils/Firebase';
 
 const ItemDetailContainer = () => {
     const { id } = useParams();

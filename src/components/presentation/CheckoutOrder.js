@@ -1,7 +1,7 @@
-import '../styles/CheckoutOrder.css';
+import '../../styles/CheckoutOrder.css';
 
 import { Modal, Container, Col, Row } from 'react-bootstrap';
-import ContinueShoppingButton from '../components/ContinueShoppingButton';
+import ContinueShoppingButton from './ContinueShoppingButton';
 
 const CheckoutOrder = ({showCheckoutOrder, orderId}) => {
 

@@ -1,13 +1,13 @@
-import '../styles/Cart.css';
+import '../../styles/Cart.css';
 
 import React, { useState, useContext } from 'react'
-import Contexts from '../context/Contexts';
+import Contexts from '../../context/Contexts';
 import { Container, Row, Col, Card, Button, Table } from "react-bootstrap";
 import { BsFillTrashFill } from "react-icons/bs";
 import CheckoutForm from './CheckoutForm';
-import CheckoutOrder from './CheckoutOrder';
-import ContinueShoppingButton from '../components/ContinueShoppingButton';
-import { addNewDocument, getServerTimestamp, filterCollection, updateItems } from '../utils/Firebase';
+import CheckoutOrder from '../presentation/CheckoutOrder';
+import ContinueShoppingButton from '../presentation/ContinueShoppingButton';
+import { addNewDocument, getServerTimestamp, filterCollection, updateItems } from '../../utils/Firebase';
 
 const Cart = () => {
     

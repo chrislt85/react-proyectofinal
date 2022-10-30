@@ -1,4 +1,4 @@
-import '../styles/NotFoundMessage.css';
+import '../../styles/NotFoundMessage.css';
 
 import ContinueShoppingButton from './ContinueShoppingButton';
 

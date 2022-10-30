@@ -1,4 +1,4 @@
-import '../styles/CheckoutForm.css';
+import '../../styles/CheckoutForm.css';
 
 import { Modal, Form, Button, InputGroup } from 'react-bootstrap';
 import { BsFillPersonFill, BsTelephoneFill } from "react-icons/bs";

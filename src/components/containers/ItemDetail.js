@@ -1,11 +1,11 @@
-import '../styles/ItemDetail.css';
+import '../../styles/ItemDetail.css';
 
 import { Container, Row, Col, Card, Button } from "react-bootstrap";
 import { useState, useContext } from "react";
-import ItemCount from '../components/ItemCount';
-import ItemStock from '../components/ItemStock';
-import ContinueShoppingButton from '../components/ContinueShoppingButton';
-import Contexts from '../context/Contexts';
+import ItemCount from './ItemCount';
+import ItemStock from '../presentation/ItemStock';
+import ContinueShoppingButton from '../presentation/ContinueShoppingButton';
+import Contexts from '../../context/Contexts';
 import { BsCart } from "react-icons/bs";
 import { Link } from "react-router-dom";
 

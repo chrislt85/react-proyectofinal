@@ -1,11 +1,11 @@
-import '../styles/NavBar.css';
+import '../../styles/NavBar.css';
 
 import { useEffect, useState } from 'react'
 import { Navbar, Nav, Container } from "react-bootstrap"
 import { Link, NavLink } from "react-router-dom"
-import { getCollection } from '../utils/Firebase'
-import CartWidget from "./CartWidget"
-import logo from '../assets/logo.png'
+import { getCollection } from '../../utils/Firebase'
+import CartWidget from ".././presentation/CartWidget"
+import logo from '../../assets/logo.png'
 
 const NavBar = () => {
 

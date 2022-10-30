@@ -1,4 +1,4 @@
-import '../styles/Loader.css';
+import '../../styles/Loader.css';
 
 import { useEffect, useState } from "react";
 import Spinner from 'react-bootstrap/Spinner';

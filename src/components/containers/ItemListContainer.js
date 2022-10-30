@@ -1,8 +1,8 @@
 import { useParams } from "react-router-dom"
 import { useEffect, useState } from "react"
-import ItemList from '../components/ItemList';
-import Loader from '../components/Loader';
-import { filterCollection, getCollection } from '../utils/Firebase';
+import ItemList from './ItemList';
+import Loader from '../presentation/Loader';
+import { filterCollection, getCollection } from '../../utils/Firebase';
 
 const ItemListContainer = ({ greeting }) => {
     const [productos, setProductos] = useState([]);
